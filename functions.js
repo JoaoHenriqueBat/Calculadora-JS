@@ -48,12 +48,19 @@ operador.forEach((btn)=>{
     })    
 });
 
+const operacao = {
+    '+': (n1, n2) => n1 + n2,
+    '-': (n1, n2) => n1 - n2,
+    '*': (n1, n2) => n1 * n2,
+    '/': (n1, n2) => n1 / n2
+}
+
 resultado.forEach((btn)=>{
     btn.addEventListener("click", function(){
         
         valor2 = visor.textContent
         visorAux.textContent += " " + valor2 + " ="
-        visor.textContent = eval(valor1+operadorLogico+"("+valor2+")")
+        visor.textContent = operacao[operadorLogico](parseFloat(valor1), parseFloat(valor2));
         
     })    
 });
